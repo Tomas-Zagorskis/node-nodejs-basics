@@ -1,5 +1,9 @@
+import { env } from 'process';
+
 const parseEnv = () => {
-    // Write your code here 
+	Object.entries(env)
+		.filter(([key, _value]) => key.match(/^RSS_/))
+		.forEach(([key, value]) => console.log(`${key}=${value}`));
 };
 
 parseEnv();
