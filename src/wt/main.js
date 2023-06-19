@@ -17,7 +17,7 @@ const performCalculations = async () => {
 		result.push(
 			new Promise(resolve => {
 				worker.on('message', data => {
-					resolve(data);
+					resolve({ status: 'resolved', data });
 				});
 				worker.on('error', () => {
 					resolve({ status: 'error', data: null });
